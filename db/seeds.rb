@@ -18,15 +18,17 @@ puts "--> All tables are empty"
 
 puts "Je charge le jeu de données"
 puts "les signalements"
-Report.create(label: Faker::Book.title, description: Faker::Lorem.paragraph, visible: true)
-Report.create(label: Faker::Book.title, description: Faker::Lorem.paragraph, visible: true)
-Report.create(label: Faker::Book.title, description: Faker::Lorem.paragraph, visible: true)
-Report.create(label: Faker::Book.title, description: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+puts "-->Report has been filled"
 
 puts "les users"
 10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
+  orga = Faker::University.name
   # puts "#{first_name}.#{last_name}@yopmail.com"
   User.create!(
     first_name: first_name,
@@ -37,15 +39,15 @@ end
 puts "-->users has been filled"
 
 puts "les actions ou todo liste"
-Todo.create(label: Faker::ProgrammingLanguage.name, description: Faker::Lorem.paragraph )
-Todo.create(label: Faker::ProgrammingLanguage.name, description: Faker::Lorem.paragraph )
-Todo.create(label: Faker::ProgrammingLanguage.name, description: Faker::Lorem.paragraph )
-Todo.create(label: Faker::ProgrammingLanguage.name, description: Faker::Lorem.paragraph )
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
 puts "-->todo has been filled"
 
-puts "les amots clés"
-Todo.create(label: Faker::Source.hello_world, description: Faker::Lorem.paragraph )
-Todo.create(label: Faker::Source.hello_world, description: Faker::Lorem.paragraph )
-Todo.create(label: Faker::Source.hello_world, description: Faker::Lorem.paragraph )
-Todo.create(label: Faker::Source.hello_world, description: Faker::Lorem.paragraph )
+puts "les mots clés"
+Todo.create(label: Faker::Source.hello_world)
+Todo.create(label: Faker::Source.hello_world)
+Todo.create(label: Faker::Source.hello_world)
+Todo.create(label: Faker::Source.hello_world)
 puts "-->keywords has been filled"
