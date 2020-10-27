@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestModel</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+    
+    <%= render 'layouts/navbar'%>
+    <p id="notice"><%= notice %></p>
+
+   <div class="container">
+      <div class="card-deck row row-cols-1 row-cols-md-2">
+        <% @reports.each do |signals| %>
+          <div class="col mb-4">
+            <div class="card rounded">
+              <div class="card-header text-center"><%= signals.label %></div>
+              <div class="card-body">
+                <h5 class="card-title text-center"><%= signals.label %></h5>
+                <p class="card-text text-justify"><%= signals.descrption %></p>
+                <p class="card-text">comité ok<%= signals.visible %></p>
+              </div>
+              <div class="card-footer center">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to 'Détail', signals %></button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render 'layouts/footer'%>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  </body>
+</html>
