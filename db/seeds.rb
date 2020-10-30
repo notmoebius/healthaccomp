@@ -16,14 +16,6 @@ User.destroy_all
 Keyword.destroy_all
 puts "--> All tables are empty"
 
-puts "Je charge le jeu de données"
-puts "les signalements"
-Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
-Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
-Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
-Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
-puts "-->Report has been filled"
-
 puts "les users"
 10.times do
   first_name = Faker::Name.first_name
@@ -38,16 +30,25 @@ puts "les users"
 end
 puts "-->users has been filled"
 
+puts "Je charge le jeu de données"
+puts "les signalements"
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+Report.create(label: Faker::Book.title, descrption: Faker::Lorem.paragraph, visible: true)
+puts "-->Report has been filled"
+
 puts "les actions ou todo liste"
-Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
-Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
-Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
-Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph )
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph, report_id: Report.all.sample.id)
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph, report_id: Report.all.sample.id)
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph, report_id: Report.all.sample.id)
+Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.paragraph, report_id: Report.all.sample.id)
 puts "-->todo has been filled"
 
 puts "les mots clés"
-Keyword.create(label: Faker::Food.vegetables)
-Keyword.create(label: Faker::Food.vegetables)
-Keyword.create(label: Faker::Food.vegetables)
-Keyword.create(label: Faker::Food.vegetables)
+Keyword.create(label: Faker::Food.vegetables, report_id: Report.all.sample.id)
+Keyword.create(label: Faker::Food.vegetables, report_id: Report.all.sample.id)
+Keyword.create(label: Faker::Food.vegetables, report_id: Report.all.sample.id)
+Keyword.create(label: Faker::Food.vegetables, report_id: Report.all.sample.id)
 puts "-->keywords has been filled"
+
