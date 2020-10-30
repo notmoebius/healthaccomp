@@ -46,8 +46,8 @@ Todo.create(label: Faker::ProgrammingLanguage.name, action_desc: Faker::Lorem.pa
 puts "-->todo has been filled"
 
 puts "les mots clés"
-Todo.create(label: Faker::Source.hello_world)
-Todo.create(label: Faker::Source.hello_world)
-Todo.create(label: Faker::Source.hello_world)
-Todo.create(label: Faker::Source.hello_world)
+Keyword.create(label: Faker::Food.vegetables)
+Keyword.create(label: Faker::Food.vegetables)
+Keyword.create(label: Faker::Food.vegetables)
+Keyword.create(label: Faker::Food.vegetables)
 puts "-->keywords has been filled"
