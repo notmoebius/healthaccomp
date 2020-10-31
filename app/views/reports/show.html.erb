@@ -14,7 +14,13 @@
   <strong>Visible:</strong>
   <%= @report.visible %>
 </p>
+<% @afaire = Todo.where(report_id: @report.id)%>
+<% @afaire.each do |t| %>
+  <strong>Action(s):</strong>
+  <%= t.label%>
+  <hr>
+<% end %>
 
 <%= link_to 'Editer', edit_report_path(@report) %> |
-<%= link_to 'Retour', reports_path %>
+<%= link_to 'Retour', reports_path %> |
 <%= link_to 'Accueil', root_path %>
