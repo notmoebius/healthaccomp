@@ -4,7 +4,12 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    
+    if params[:search]
+      @reports = Report.search(params[:search])
+    else
+      @reports = Report.all
+    end
   end
 
   # GET /reports/1
@@ -28,7 +33,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to @report, notice: 'Signalement a été créé.' }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to @report, notice: 'Signalement a été mis à jour.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
+      format.html { redirect_to reports_url, notice: 'Signalement a été supprimé.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class ReportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def report_params
-      params.require(:report).permit(:label, :descrption, :visible)
+      params.require(:report).permit(:label, :descrption, :visible, :search)
     end
 end

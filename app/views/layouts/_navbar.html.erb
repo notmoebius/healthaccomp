@@ -16,8 +16,16 @@
         </li>
       </ul>
     </div>
-    <form class="form-inline my-2 my-lg-0">
+      <!-- Zone formualaire de recherche -->
+
+  <div class="form-inline my-2 my-lg-0">
+    <%= form_tag(reports_path method: :get) do %>
+      Un Signalement ? <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag 'Chercher' %>
+    <% end %>
+  </div>
+    <!--<form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">OK</button>
-    </form>
+    </form>-->
   </nav>
