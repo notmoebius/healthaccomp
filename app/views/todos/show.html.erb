@@ -10,5 +10,11 @@
   <%= @todo.action_desc %>
 </p>
 
+<p>
+  <strong>Attaché au signalement:</strong>
+  <% @signalement = Report.find_by(id: @todo.report_id)%>
+  <%= @signalement.label %>
+</p>
+
 <%= link_to 'Edit', edit_todo_path(@todo) %> |
 <%= link_to 'Back', todos_path %>

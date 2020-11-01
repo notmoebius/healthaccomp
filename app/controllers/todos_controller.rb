@@ -28,7 +28,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
+        format.html { redirect_to @todo, notice: 'Action ajoutée avec succès' }
         format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to @todo, notice: 'Action modifiée avec succès.' }
         format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class TodosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.require(:todo).permit(:label, :action_desc)
+      params.require(:todo).permit(:label, :action_desc, :report_id)
     end
 end

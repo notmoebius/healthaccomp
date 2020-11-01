@@ -14,12 +14,21 @@
   <strong>Visible:</strong>
   <%= @report.visible %>
 </p>
+<hr>
+
 <% @afaire = Todo.where(report_id: @report.id)%>
+<strong>Action(s):</strong><br>
 <% @afaire.each do |t| %>
-  <strong>Action(s):</strong>
   <%= t.label%>
-  <hr>
 <% end %>
+<hr>
+
+<% @motclef = Keyword.where(report_id: @report.id)%>
+<strong>Mots(s)-clés:</strong><br>
+<% @motclef.each do |m| %>
+  <%= m.label%>
+<% end %>
+<br>
 
 <%= link_to 'Editer', edit_report_path(@report) %> |
 <%= link_to 'Retour', reports_path %> |

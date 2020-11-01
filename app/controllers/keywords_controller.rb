@@ -28,7 +28,7 @@ class KeywordsController < ApplicationController
 
     respond_to do |format|
       if @keyword.save
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully created.' }
+        format.html { redirect_to @keyword, notice: 'Mots-clés ajouté avec succès.' }
         format.json { render :show, status: :created, location: @keyword }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class KeywordsController < ApplicationController
   def update
     respond_to do |format|
       if @keyword.update(keyword_params)
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully updated.' }
+        format.html { redirect_to @keyword, notice: 'Mots-clés modfié avec succès.' }
         format.json { render :show, status: :ok, location: @keyword }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class KeywordsController < ApplicationController
   def destroy
     @keyword.destroy
     respond_to do |format|
-      format.html { redirect_to keywords_url, notice: 'Keyword was successfully destroyed.' }
+      format.html { redirect_to keywords_url, notice: 'Mots-clés supprimé.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class KeywordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def keyword_params
-      params.require(:keyword).permit(:label)
+      params.require(:keyword).permit(:label, :report_id)
     end
 end
