@@ -1,35 +1,63 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <p>
+            <strong>Label:</strong>
+            <%= @report.label %>
+          </p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @report.label %>
-</p>
+          <p>
+            <strong>Descrption:</strong>
+            <%= @report.descrption %>
+          </p>
 
-<p>
-  <strong>Descrption:</strong>
-  <%= @report.descrption %>
-</p>
+          <p>
+              <% if @report.visible %>
+                <p class="card-text text-success">Décision comité : validé</p>
+              <% else %>
+                <p class="card-text text-warning">Décision comité : en-cours de validation</p>
+              <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-light mb-3">
+      <div class="card-body">
+        <div id="action" class="shadow-lg h-100 p-3 mb-5 bg-white rounded">
+          <% @motclef = Keyword.where(report_id: @report.id)%>
+          <strong>Mots(s)-clés:</strong><br>
+          <% @motclef.each do |m| %>
+            <%= m.label%> <br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Visible:</strong>
-  <%= @report.visible %>
-</p>
-<hr>
-
-<% @afaire = Todo.where(report_id: @report.id)%>
-<strong>Action(s):</strong><br>
-<% @afaire.each do |t| %>
-  <%= t.label%>
-<% end %>
-<hr>
-
-<% @motclef = Keyword.where(report_id: @report.id)%>
-<strong>Mots(s)-clés:</strong><br>
-<% @motclef.each do |m| %>
-  <%= m.label%>
-<% end %>
-<br>
-
-<%= link_to 'Editer', edit_report_path(@report) %> |
-<%= link_to 'Retour', reports_path %> |
-<%= link_to 'Accueil', root_path %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Action</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <% @afaire = Todo.where(report_id: @report.id)%>
+    <tbody>
+      <% @afaire.each do |t| %>
+      <tr>      
+        <td><%= t.label%></td>
+        <td><%= t.action_desc%></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <div>
+    <%= link_to 'Editer', edit_report_path(@report), class: "" %> |
+    <%= link_to 'Retour', reports_path %> |
+    <%= link_to 'Accueil', root_path %>
+  </div>
+</div>

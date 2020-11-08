@@ -4,13 +4,13 @@
 
   <div class="container">
     <%= form_tag(reports_path method: :get) do %>
-      Un Signalement ? <%= text_field_tag :search %>
+      Une situation ? <%= text_field_tag :search %>
       <%= submit_tag ("Chercher") %>
     <% end %>
   </div>
 <hr>
 <div class="container">
-  <h1>Les signalements</h1><br> 
+  <h1>Les situations</h1><br> 
   <button type="button" class="btn btn-outline-success"><%= link_to 'Créer un signalement', new_report_path %></button>
   <hr>  
   <div class="row">

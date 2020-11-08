@@ -1,12 +1,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Coding Dojo 2020 - Acc'S</a>
+    <a class="navbar-brand" href="/">MisAS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/reports">Signalements</a>
+          <a class="nav-link" href="/reports">Situations</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/todos">Actions</a>
@@ -20,7 +20,7 @@
 
   <div class="form-inline my-2 my-lg-0">
     <%= form_tag(reports_path method: :get) do %>
-      Un Signalement ? <%= text_field_tag :search, params[:search] %>
+      Une situation ? <%= text_field_tag :search, params[:search] %>
       <%= submit_tag 'Chercher' %>
     <% end %>
   </div>

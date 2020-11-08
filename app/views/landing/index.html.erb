@@ -20,17 +20,21 @@
 
   <!-- les X derniers signalements -->
   <div class="container">
-    <div class="card-deck row row-cols-1 row-cols-md-2">
+    <div class="card-deck row"> <!-- row row-cols-1 row-cols-md-2 -->
       <% @reports.each do |signals| %>
-        <div class="col mb-3">
-          <div class="card rounded">
-            <div class="card-header text-center"><%= signals.label %></div>
+        <div class="col-md-4 col-sm-6 col-12 pt-4">
+          <div class="card rounded h-100 shadow mb-5 bg-white rounded">
+            <div class="card-header text-white bg-primary"><%= signals.label %></div>
             <div class="card-body">
-              <h5 class="card-title text-center"><%= signals.label %></h5>
+              <!--<h5 class="card-title text-center"><%= signals.label %></h5>-->
               <p class="card-text text-justify"><%= signals.descrption %></p>
-              <p class="card-text">comité ok<%= signals.visible %></p>
+              <% if signals.visible %>
+                <p class="card-text text-success">Décision comité : validé</p>
+              <% else %>
+                <p class="card-text text-warning">Décision comité : en-cours de validation</p>
+              <% end %>
             </div>
-            <div class="card-footer center">
+            <div class="card-footer text-center">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to 'Détail', signals %></button>
             </div>
           </div>
