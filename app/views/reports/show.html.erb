@@ -5,8 +5,7 @@
       <div class="card shadow-lg p-3 mb-5 bg-white rounded">
         <div class="card-body">
           <p>
-            <strong>Label:</strong>
-            <%= @report.label %>
+            <div class="card-header text-white bg-primary"><h3><%= @report.label %></h3></div>
           </p>
 
           <p>
@@ -56,8 +55,8 @@
   </table>
   <hr>
   <div>
-    <%= link_to 'Editer', edit_report_path(@report), class: "" %> |
-    <%= link_to 'Retour', reports_path %> |
-    <%= link_to 'Accueil', root_path %>
+    <%= link_to 'Editer', edit_report_path(@report), type:"button", class:"btn btn-outline-dark"  %> |
+    <%= link_to 'Retour', reports_path, type:"button", class:"btn btn-outline-dark" %> |
+    <%= link_to 'Accueil', root_path, type:"button", class:"btn btn-outline-dark"  %>
   </div>
 </div>

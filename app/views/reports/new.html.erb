@@ -1,5 +1,7 @@
-<h1>Voir en détail</h1>
+<div class="containter">
+	<h3>Créer une situation</h3>
 
-<%= render 'form', report: @report %>
+	<%= render 'form', report: @report %>
 
-<button type="button" class="btn btn-outline-dark"><%= link_to 'Retour', reports_path %></button>
+	<%= link_to 'Retour', reports_path, type:"button", class:"btn btn-outline-dark" %>
+</div>
