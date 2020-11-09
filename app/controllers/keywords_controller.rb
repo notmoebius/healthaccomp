@@ -30,9 +30,11 @@ class KeywordsController < ApplicationController
       if @keyword.save
         format.html { redirect_to @keyword, notice: 'Mots-clés ajouté avec succès.' }
         format.json { render :show, status: :created, location: @keyword }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @keyword.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
