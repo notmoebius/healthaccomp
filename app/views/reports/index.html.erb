@@ -4,10 +4,11 @@
 
   <div class="container">
     <%= form_tag(reports_path method: :get) do %>
-      Une situation ? <%= text_field_tag :search %>
-      <%= submit_tag ("Chercher") %>
+      Une situation ? <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag ("Chercher"), class:"btn btn-primary" %>
     <% end %>
   </div>
+
 <hr>
 <div class="container">
   <h1>Les situations</h1><br> 
@@ -18,7 +19,11 @@
       <div class="col-4">
         <h5><%= report.label %>
         <p><%= report.descrption %><br>
-        <!--<td><%= report.visible %>-->
+        <% if report.visible %>
+          <p class="card-text text-success">Décision comité : validé</p>
+        <% else %>
+          <p class="card-text text-warning">Décision comité : en-cours de validation</p>
+        <% end %>
         <%= link_to 'voir', report, type:"button", class:"btn btn-outline-success" %>        
         <%= link_to 'éditer', edit_report_path(report), type:"button", class:"btn btn-outline-primary" %>
         <%= link_to 'supprimer', report, method: :delete, type:"button", class:"btn btn-outline-danger", data: { confirm: 'Etes-vous sûr ?' } %>

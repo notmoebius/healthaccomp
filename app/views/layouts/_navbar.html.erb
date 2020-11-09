@@ -21,7 +21,7 @@
   <div class="form-inline my-2 my-lg-0">
     <%= form_tag(reports_path method: :get) do %>
       Une situation ? <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag 'Chercher' %>
+      <%= submit_tag 'Chercher' , class:"btn btn-primary" %>
     <% end %>
   </div>
     <!--<form class="form-inline my-2 my-lg-0">
