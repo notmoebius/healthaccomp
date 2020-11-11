@@ -5,8 +5,15 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     
+    @reports = Report.all
+    @search = params["search"]
+    if @search.present?
+      @label = @search[:label]
+      #@reports = Report.where(label: @label)
+      @reports = Report.where("label LIKE ?", "%#{@label}%")
+    end
     #if params[:search]
-      @reports = Report.search(params[:search])
+      #@reports = Report.search(params[:search])
     #else
     #  @reports = Report.all
     #end
