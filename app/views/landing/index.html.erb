@@ -21,7 +21,7 @@
   <!-- les X derniers signalements -->
   <div class="container">
     <div class="card-deck row"> <!-- row row-cols-1 row-cols-md-2 -->
-      <% @reports.order(id: :desc).each do |signals| %>
+      <% @reports.order(id: :desc).take(6).each do |signals| %>
         <div class="col-md-4 col-sm-6 col-12 pt-4">
           <div class="card rounded h-100 shadow mb-5 bg-white rounded">
             <div class="card-header text-white bg-primary"><%= signals.label %></div>

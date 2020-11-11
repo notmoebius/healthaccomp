@@ -2,22 +2,21 @@
 
 <h1>Gérer les actions</h1>
 
-<table>
+<%= link_to 'Ajouter une action', new_todo_path, type:"button", class:"btn btn-outline-success"  %>
+<br>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Libellé</th>
       <th>Sa description</th>
       <th>Situation</th>
-      <th colspan="3"></th>
     </tr>
-  </thead>
-
   <tbody>
     <% @todos.each do |todo| %>
       <tr>
         <td><%= todo.label %></td>
         <td><%= todo.action_desc %></td>
-        <td><%= todo.report_id %></td>
+        <td><%= todo.report.label %></td>
         <td><%= link_to 'Voir', todo %></td>
         <td><%= link_to 'Editer', edit_todo_path(todo) %></td>
         <td><%= link_to 'Supprimer', todo, method: :delete, data: { confirm: 'Etes vous sûr ?' } %></td>
@@ -25,7 +24,8 @@
     <% end %>
   </tbody>
 </table>
+<table>
 
 <br>
 
-<%= link_to 'Ajouter une action', new_todo_path %>
+

@@ -10,7 +10,7 @@
 
 <div class="container">
   <h1>Les situations</h1><br> 
-  <button type="button" class="btn btn-outline-success"><%= link_to 'Créer un signalement', new_report_path %></button>
+  <%= link_to 'Créer une situation', new_report_path, type:"button", class:"btn btn-outline-success" %>
   <hr>  
   <div class="row">
     <% @reports.order(id: :desc).each do |report| %>
