@@ -16,18 +16,11 @@
         </li>
       </ul>
     </div>
-      <!-- Zone formualaire de recherche -->
-  <!--
-  <div class="form-inline my-2 my-lg-0">
-    <%= form_tag(reports_path method: :get) do %>
-      Une situation ? <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag 'Chercher' , class:"btn btn-primary" %>
-    <% end %>
-  </div> -->
-<div class="form-inline my-2 my-lg-0">
-  <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :label, require: false, label: false, placeholder: 'Saisir le titre d\'une situation', input_html: {value: ""} %>   
-    <%= f.submit "Chercher", class: "btn btn-primary" %>
-  <% end %>
-</div>
+    <!-- Zone formualaire de recherche -->
+    <div class="form-inline my-2 my-lg-0">
+      <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :label, require: false, label: false, placeholder: 'Saisir le titre d\'une situation', input_html: {value: ""} %>   
+        <%= f.submit "Chercher", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </nav>

@@ -2,6 +2,7 @@ class Report < ApplicationRecord
 	has_many :keywords
 	has_many :todos
 
+	
 	def self.search(search)
 		if search
 			libelle = Report.find_by(label: search)

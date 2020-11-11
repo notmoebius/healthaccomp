@@ -9,14 +9,8 @@ class ReportsController < ApplicationController
     @search = params["search"]
     if @search.present?
       @label = @search[:label]
-      #@reports = Report.where(label: @label)
       @reports = Report.where("label LIKE ?", "%#{@label}%")
     end
-    #if params[:search]
-      #@reports = Report.search(params[:search])
-    #else
-    #  @reports = Report.all
-    #end
   end
 
   # GET /reports/1
@@ -82,6 +76,5 @@ class ReportsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def report_params
       params.require(:report).permit(:label, :descrption, :visible, :search)
-      #params.permit(:label, :descrption, :visible, :search)
     end
 end

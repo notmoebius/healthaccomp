@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-  <!-- Zone formualaire de recherche -->
-<!-- 
-  <div class="container">
-    <%= form_tag(reports_path method: :get) do %>
-      Une situation ? <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag ("Chercher"), class:"btn btn-primary" %>
-    <% end %>
-  </div>
--->
+<!-- Zone formualaire de recherche -->
 <div class="container">
   <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline' } do |f| %>
     <%= f.input :label, label: false, placeholder: 'mots-clés', input_html: {value: ""} %>   
@@ -16,13 +8,12 @@
   <% end %>
 </div>
 
-<hr>
 <div class="container">
   <h1>Les situations</h1><br> 
   <button type="button" class="btn btn-outline-success"><%= link_to 'Créer un signalement', new_report_path %></button>
   <hr>  
   <div class="row">
-    <% @reports.each do |report| %>
+    <% @reports.order(id: :desc).each do |report| %>
       <div class="col-4">
         <h5><%= report.label %>
         <p><%= report.descrption %><br>
