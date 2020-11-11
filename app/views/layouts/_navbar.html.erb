@@ -26,7 +26,7 @@
   </div> -->
 <div class="form-inline my-2 my-lg-0">
   <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :label, input_html: {value: ""} %>   
+    <%= f.input :label, require: false, label: false, placeholder: 'Saisir le titre d\'une situation', input_html: {value: ""} %>   
     <%= f.submit "Chercher", class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -11,7 +11,7 @@
 -->
 <div class="container">
   <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :label, input_html: {value: ""} %>   
+    <%= f.input :label, label: false, placeholder: 'mots-clés', input_html: {value: ""} %>   
     <%= f.submit "Chercher", class: "btn btn-primary" %>
   <% end %>
 </div>
