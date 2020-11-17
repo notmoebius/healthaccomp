@@ -1,9 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @keyword.label %>
-</p>
-
-<%= link_to 'Edit', edit_keyword_path(@keyword) %> |
-<%= link_to 'Back', keywords_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <p>
+        <strong>Mots-clés :</strong>
+        <%= @keyword.label %>
+      </p>
+      <p>
+        <strong>Attaché à la situation:</strong>
+        <% @signalement = Report.find_by(id: @keyword.report_id)%>
+        <%= @signalement.label %>
+      </p>
+      <hr>
+      <div>
+        <%= link_to 'Editer', edit_keyword_path(@keyword) , type:"button", class:"btn btn-outline-dark"  %> |
+        <%= link_to 'Retour', keywords_path, type:"button", class:"btn btn-outline-dark" %> |
+        <%= link_to 'Accueil', root_path, type:"button", class:"btn btn-outline-dark"  %>
+      </div>
+    </div>
+  </div>
+</div>

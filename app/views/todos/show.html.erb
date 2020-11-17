@@ -1,20 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @todo.label %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <p>
+        <strong>Libellé</strong>
+        <%= @todo.label %>
+      </p>
 
-<p>
-  <strong>Action desc:</strong>
-  <%= @todo.action_desc %>
-</p>
+      <p>
+        <strong>Action desc:</strong>
+        <%= @todo.action_desc %>
+      </p>
 
-<p>
-  <strong>Attaché à la situation:</strong>
-  <% @signalement = Report.find_by(id: @todo.report_id)%>
-  <%= @signalement.label %>
-</p>
-
-<%= link_to 'Edit', edit_todo_path(@todo) %> |
-<%= link_to 'Back', todos_path %>
+      <p>
+        <strong>Attaché à la situation:</strong>
+        <% @signalement = Report.find_by(id: @todo.report_id)%>
+        <%= @signalement.label %>
+      </p>
+      <hr>
+      <div>
+        <%= link_to 'Editer', edit_todo_path(@todo) , type:"button", class:"btn btn-outline-dark"  %> |
+        <%= link_to 'Retour', todos_path, type:"button", class:"btn btn-outline-dark" %> |
+        <%= link_to 'Accueil', root_path, type:"button", class:"btn btn-outline-dark"  %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,4 @@
-<div class="modal-header">
-   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-   <h3 id="myModalLabel">Ajoute un mot-clé</h3>
-</div>
-<div class="modal-body">
+
   <%= form_with(model: keyword, local: true) do |form| %>
     <% if keyword.errors.any? %>
       <div id="error_explanation">
@@ -16,21 +12,17 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :label %>
+      <label for="exampleFormControlTextarea1">Mots-clés</label>
       <%= form.text_field :label %>
     </div>
 
     <div class="field">
-      <%= form.label :report_id %>
+      <label for="exampleFormControlTextarea1">Attaché à la situation:</label>
       <%= form.text_field :report_id %>
     </div>
 
     <div class="actions">
-      <%= form.submit "Enregistrer"  %>
+      <%= form.submit "Enregistrer", class: 'btn btn-primary'   %>
     </div>
   <% end %>
-</div>
-<div class="modal-footer">
-  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  <button class="btn btn-primary">Save changes</button>
 </div>

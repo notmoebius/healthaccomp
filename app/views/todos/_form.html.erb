@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :label %>
-    <%= form.text_field :label %>
-  </div>
+  <div class="container">
+    <div class="form-group">
+      <div class="field">
+        <label for="exampleFormControlTextarea1">Libellé de l'action</label>
+        <%= form.text_field :label , type:"text", class:"form-control" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :action_desc %>
-    <%= form.text_area :action_desc %>
-  </div>
+      <div class="field">
+        <label for="exampleFormControlTextarea1">Description de l'action</label>
+        <%= form.text_area :action_desc, type:"textarea", class:"form-control", rows:"5" %>
+      </div>
 
-    <div class="field">
-    <%= form.label :report_id %>
-    <%= form.text_field :report_id %>
-  </div>
+      <div class="field">
+        <label for="exampleFormControlTextarea1">N° situation</label>
+        <%= form.text_field :report_id %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Enregistrer', class: 'btn btn-primary'  %>
+    </div>
 <% end %>
