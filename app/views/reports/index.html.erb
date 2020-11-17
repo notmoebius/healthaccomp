@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<!-- Zone formualaire de recherche -->
+<!-- Zone formualaire de recherche 
 <div class="container">
   <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline' } do |f| %>
     <%= f.input :label, label: false, placeholder: 'mots-clés', input_html: {value: ""} %>   
     <%= f.submit "Chercher", class: "btn btn-primary" %>
   <% end %>
 </div>
+-->
 
 <div class="container">
   <h1>Les situations</h1><br> 
