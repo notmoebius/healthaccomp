@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
     @search = params["search"]
     if @search.present?
       @label = @search[:label]
-      @reports = Report.where("label LIKE ?", "%#{@label}%")
+      @reports = Report.where("label ILIKE ?", "%#{@label}%")
     end
   end
 
